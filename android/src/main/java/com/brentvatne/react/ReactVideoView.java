@@ -318,9 +318,6 @@ public class ReactVideoView extends ScalableVideoView implements MediaPlayer.OnP
 
         mRepeat = repeat;
 
-        if (mMediaPlayerValid) {
-            setLooping(repeat);
-        }
     }
 
     public void setPausedModifier(final boolean paused) {
@@ -527,6 +524,13 @@ public class ReactVideoView extends ScalableVideoView implements MediaPlayer.OnP
 
         isCompleted = true;
         mEventEmitter.receiveEvent(getId(), Events.EVENT_END.toString(), null);
+
+        if(mRepeat){
+            pause();
+            seekTo(0);
+            start();
+        }
+
     }
 
     @Override
