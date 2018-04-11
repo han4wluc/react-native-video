@@ -525,7 +525,7 @@ public class ReactVideoView extends ScalableVideoView implements MediaPlayer.OnP
         isCompleted = true;
         mEventEmitter.receiveEvent(getId(), Events.EVENT_END.toString(), null);
 
-        if(mRepeat){
+        if(mRepeat && !mPaused){
             pause();
             seekTo(0);
             start();
