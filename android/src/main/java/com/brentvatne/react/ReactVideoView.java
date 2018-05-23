@@ -441,6 +441,9 @@ public class ReactVideoView extends ScalableVideoView implements MediaPlayer.OnP
                 }
             });
         }
+
+        // seek to 50ms in order to show the picture
+        mp.seekTo(50);
     }
 
     @Override
